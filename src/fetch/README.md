@@ -1,5 +1,6 @@
 # Fetch MCP Server
 
+[![smithery badge](https://smithery.ai/badge/fetch-mcp-server)](https://smithery.ai/server/fetch-mcp-server)
 A Model Context Protocol server that provides web content fetching capabilities. This server enables LLMs to retrieve and process content from web pages, converting HTML to markdown for easier consumption.
 
 The fetch tool will truncate the response, but by using the `start_index` argument, you can specify where to start the content extraction. This lets models read a webpage in chunks, until they find the information they need.
@@ -28,6 +29,14 @@ Optionally: Install node.js, this will cause the fetch server to use a different
 When using [`uv`](https://docs.astral.sh/uv/) no specific installation is needed. We will
 use [`uvx`](https://docs.astral.sh/uv/guides/tools/) to directly run *mcp-server-fetch*.
 
+### Installing via Smithery
+
+To install Fetch MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/fetch-mcp-server):
+
+```bash
+npx -y @smithery/cli install fetch-mcp-server --client claude
+```
+
 ### Using PIP
 
 Alternatively you can install `mcp-server-fetch` via pip:
@@ -44,7 +53,7 @@ python -m mcp_server_fetch
 
 ## Configuration
 
-### Configure for Claude.app
+### Configure for Claude Desktop
 
 Add to your Claude settings:
 
@@ -98,11 +107,11 @@ the request was user initiated (via a prompt). This can be disabled by adding th
 By default, depending on if the request came from the model (via a tool), or was user initiated (via a prompt), the
 server will use either the user-agent
 ```
-ModelContextProtocol/1.0 (Autonomous; +https://github.com/modelcontextprotocol/servers)
+ModelContextProtocol/1.0 (Autonomous; +https://github.com/modelcontext/url-fetch)
 ```
 or
 ```
-ModelContextProtocol/1.0 (User-Specified; +https://github.com/modelcontextprotocol/servers)
+ModelContextProtocol/1.0 (User-Specified; +https://github.com/modelcontext/url-fetch)
 ```
 
 This can be customized by adding the argument `--user-agent=YourUserAgent` to the `args` list in the configuration.
